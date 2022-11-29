@@ -1,11 +1,11 @@
-#
+
 import json
 
 from config import db
 
-# Данные джсон необходимо положить в базу данных, используя модели
+# Данные json необходимо положить в базу данных, используя модели
 # ** - распаковка данных
-from main import User, Offer, Orders
+from module import User, Orders, Offer
 
 
 def insert_data(model, data):

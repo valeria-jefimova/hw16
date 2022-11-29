@@ -1,6 +1,7 @@
+
 from config import db
 
-
+# Создание моделей
 class User(db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
@@ -12,7 +13,7 @@ class User(db.Model):
     phone = db.Column(db.String(100))
 
 
-class Offer(db. Model):
+class Offer(db.Model):
     __tablename__ = 'offer'
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.Column(db.Integer, db.ForeignKey('order.id'))

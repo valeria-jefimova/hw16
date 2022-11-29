@@ -1,29 +1,34 @@
+
 import json
 
 from config import app
-from main import User
+from module import User
 from utils import add_data
 
 
 @app.route("/users")
 def get_users():
-    #возвращает результат запроса в виде списка
-        user_list = User.query.all()
+    """
 
-        user_response = []
+    :return:
+    """
+    # возвращает результат запроса в виде списка
+    user_list = User.query.all()
 
-        for user in user_list:
-            user_response.append({
-                "id": user.id,
-                "first_name": user.first_name,
-                "last_name": user.last_name,
-                "age": user.age,
-                "email": user.email,
-                "role": user.role,
-                "phone": user.phone
-            })
+    user_response = []
 
-        return json.dumps(user_response)
+    for user in user_list:
+        user_response.append({
+            "id": user.id,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "age": user.age,
+            "email": user.email,
+            "role": user.role,
+            "phone": user.phone
+        })
+
+    return json.dumps(user_response)
 
 
 # @app.route("/users/<int:uid>")
@@ -94,5 +99,4 @@ def get_users():
 #     })
 
 if __name__ == '__main__':
-    add_data()
     app.run(debug=True)
